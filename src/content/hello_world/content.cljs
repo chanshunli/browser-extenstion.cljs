@@ -1,8 +1,7 @@
 (ns hello-world.content
-  ;;(:require-macros [cljs.core.async.macros :refer [go]])
+  (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
-            ;;[clojure.core.async :as async :refer [<! >!]]
-            ;;[clojure.core.async :as async]
+            [clojure.core.async :as async]
             ;;[cljs-http.client :as http]
             ))
 
