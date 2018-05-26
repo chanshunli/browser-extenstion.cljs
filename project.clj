@@ -3,7 +3,11 @@
   :url "https://github.com/jiacai2050/browser-extenstion.cljs"
   :min-lein-version "2.7.1"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.9.946"]]
+                 [org.clojure/clojurescript "1.9.946"]
+                 [cljs-http "0.1.43"]
+                 [reagent "0.6.1"]
+                 [reagent-utils "0.2.1"]
+                 [re-frame "0.10.2"]]
   :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.14"]
                                   [com.cemerick/piggieback "0.2.2"]]
                    :plugins [[lein-figwheel "0.5.14"]
