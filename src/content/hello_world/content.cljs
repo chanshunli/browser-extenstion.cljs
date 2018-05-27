@@ -6,6 +6,10 @@
             ;;[cljs-http.client :as http]
             ))
 
+(def api-token (local-storage (r/atom "") :api-token))
+
+(def google-search-history (local-storage (r/atom []) :google-history))
+
 (enable-console-print!)
 
 (def google-input-html
@@ -46,9 +50,11 @@
              ;; C-g: 任意网页的谷歌搜索
              (= 71 keycode)
              (let [selector (.getSelection js/window)
-                   select-stri (str (.toString selector))]
-               (prn (str "正在谷歌搜索: " select-stri ", url: " (get-url)))
-               (set! (.-value (.getElementById js/document "google-input")) (str select-stri))
+                   select-stri (str (.toString selector))
+                   url (get-url)]
+               (prn (str "正在谷歌搜索: " select-stri ", url: " url))
+               (swap! google-search-history conj {:url url :search-data select-stri})
+               (set! (.-value (.getElementById js/document "google-input")) select-stri)
                (.click (.getElementById js/document "google-input-button"))
                )
              (= 83 keycode)
