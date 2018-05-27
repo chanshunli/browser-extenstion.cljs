@@ -2,6 +2,7 @@
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
             [clojure.core.async :as async]
+            [alandipert.storage-atom :refer [local-storage] :as st]
             ;;[cljs-http.client :as http]
             ))
 
