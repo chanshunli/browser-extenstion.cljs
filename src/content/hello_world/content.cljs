@@ -3,6 +3,7 @@
   (:require [reagent.core :as r]
             [clojure.core.async :as async]
             [alandipert.storage-atom :refer [local-storage] :as st]
+            [hello-world.something :as something]
             ;;[cljs-http.client :as http]
             ))
 
@@ -27,7 +28,7 @@
 
 (defn get-url [] (str (-> js/window .-location .-href)))
 
-(println "Hello from cljs, This is content JS !")
+(println (str "Hello from cljs, This is content JS ! " (something/hello)))
 
 ;; in brower environment?
 (when (.-body js/document)
