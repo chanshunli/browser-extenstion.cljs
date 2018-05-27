@@ -28,6 +28,14 @@
 
 (defn get-url [] (str (-> js/window .-location .-href)))
 
+(defn recur-match [re-text selector]
+  (let [bp-ele (-> selector .-baseNode .-parentElement)]
+    ((fn [n]
+       (loop [cnt n]
+         (if (re-matches re-text (.-textContent cnt))
+           cnt
+           (recur (.-parentElement cnt))))) bp-ele)))
+
 (println (str "Hello from cljs, This is content JS ! " (something/hello)))
 
 ;; in brower environment?
