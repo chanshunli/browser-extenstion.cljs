@@ -8,7 +8,7 @@
 (enable-console-print!)
 
 (def google-input-html
-  "<form target=\"_blank\" action=\"http://www.google.com/search\" method=\"get\"><input type=\"text\" id=\"google-input\" name=\"q\"><input type=\"submit\" value=\"Google\" id=\"google-input-button\"></form>")
+  "<form target=\"_blank\" action=\"http://www.google.com/search\" method=\"get\" style=\"display: none;\"><input type=\"text\" id=\"google-input\" name=\"q\"><input type=\"submit\" value=\"Google\" id=\"google-input-button\"></form>")
 
 (defn body-append-html-stri [html]
   (.appendChild
