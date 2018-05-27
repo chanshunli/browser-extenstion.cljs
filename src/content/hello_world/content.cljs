@@ -8,7 +8,7 @@
 
 (def api-token (local-storage (r/atom "") :api-token))
 
-(def google-search-history (local-storage (r/atom []) :google-history))
+(def domain-google-search-history (local-storage (r/atom []) :google-history))
 
 (enable-console-print!)
 
@@ -54,8 +54,8 @@
                    url (get-url)]
                (prn (str "正在谷歌搜索: " select-stri ", url: " url))
                ;; 临时的fn多线程跑自己:
-               (swap! google-search-history conj {:url url :search-data select-stri})
-               (prn (str "所有搜索历史: " @google-search-history))
+               (swap! domain-google-search-history conj {:url url :search-data select-stri})
+               (prn (str "所有搜索历史: " @domain-google-search-history))
                (set! (.-value (.getElementById js/document "google-input")) select-stri)
                (.click (.getElementById js/document "google-input-button"))
                )
