@@ -20,6 +20,8 @@
        .-body
        .-firstElementChild)))
 
+(defn get-url [] (str (-> js/window .-location .-href)))
+
 (println "Hello from cljs, This is content JS !")
 
 ;; in brower environment?
@@ -44,7 +46,7 @@
              (= 71 keycode)
              (let [selector (.getSelection js/window)
                    select-stri (str (.toString selector))]
-               (prn (str "正在谷歌搜索:" select-stri))
+               (prn (str "正在谷歌搜索: " select-stri ", url: " (get-url)))
                (set! (.-value (.getElementById js/document "google-input")) (str select-stri))
                (.click (.getElementById js/document "google-input-button"))
                )
