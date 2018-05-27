@@ -40,11 +40,13 @@
              ;; 数字键
              ((set (range 47 58)) keycode)
              (js/alert "这里是数字键!")
-             ;;
+             ;; C-g: 任意网页的谷歌搜索
              (= 71 keycode)
              (let [selector (.getSelection js/window)
                    select-stri (str (.toString selector))]
-               (js/alert (str "正在谷歌搜索:" select-stri))
+               (prn (str "正在谷歌搜索:" select-stri))
+               (set! (.-value (.getElementById js/document "google-input")) (str select-stri))
+               (.click (.getElementById js/document "google-input-button"))
                )
              (= 83 keycode)
              (prn 1111111)
