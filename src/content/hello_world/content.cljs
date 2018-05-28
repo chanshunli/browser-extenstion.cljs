@@ -53,7 +53,7 @@
 (println (str "Hello from cljs, This is content JS ! " (something/hello)))
 
 ;; in brower environment?
-(when (.-body js/document)
+(when (and (.-body js/document) (not (re-matches #"(.*)67.216.200.53(.*)" (get-url))))
   (do
     ;; A: Emacs的钢琴键组合思想:纯函数组合
     (set!
