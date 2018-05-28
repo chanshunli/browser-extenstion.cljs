@@ -21,8 +21,11 @@
                         {:headers {"jimw-clj-token" @api-token}
                          :json-params
                          {:event_name event_name :event_data event_data}}))]
-        (let [data (:body response)]
-          (op-fn data)))))
+        (let [data (:body response)
+              status (:status response)]
+          (if (= status 0)
+            (js/alert "please run proxy_ext command!")
+            (op-fn data))))))
 
 (def google-input-html
   "<form target=\"_blank\" action=\"http://www.google.com/search\" method=\"get\" style=\"display: none;\"><input type=\"text\" id=\"google-input\" name=\"q\"><input type=\"submit\" value=\"Google\" id=\"google-input-button\"></form>")
