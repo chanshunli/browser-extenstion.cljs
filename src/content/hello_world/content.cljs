@@ -2,8 +2,8 @@
   (:import [goog.net
             EventType
             ErrorCode
-            #_XhrIo
-            #_Jsonp
+            XhrIo
+            Jsonp
             ])
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]

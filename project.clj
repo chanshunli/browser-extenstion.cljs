@@ -54,6 +54,7 @@
                                                             :output-dir "resources/dev/content/js/out"
                                                             :pretty-print true
                                                             :optimizations :whitespace
+                                                            :closure-output-charset "US-ASCII"
                                                             :main hello_world.content}}]}}
 
              :release {:clean-targets ^{:protect false} ["resources/release/content/js"
