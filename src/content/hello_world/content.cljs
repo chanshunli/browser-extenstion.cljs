@@ -6,7 +6,7 @@
             [hello-world.something :as something]
             ;;[cljs-http.client :as http] ;;;;;;;;;;;; λ分割
             ;;[cljs-http.core :as core]
-            ;;[cljs-http.util :as util]
+            [cljs-http.util :as util]
             [cljs.reader :refer [read-string]]
             [clojure.string :refer [blank? join split]]
             [goog.Uri :as uri]
