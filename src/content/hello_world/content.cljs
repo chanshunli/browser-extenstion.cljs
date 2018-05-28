@@ -7,7 +7,7 @@
             [hello-world.token :as token]
             [cljs-http.client :as http]))
 
-(def api-token (local-storage (r/atom token/token) :api-token))
+(def api-token (r/atom token/token))
 
 (def domain-google-search-history (local-storage (r/atom []) :google-history))
 
@@ -76,6 +76,7 @@
                ;; 临时的fn多线程跑自己:
                ;;(swap! domain-google-search-history conj {:url url :search-data select-stri})
                ;;(prn (str "所有搜索历史: " @domain-google-search-history))
+               (prn (str "==========" @api-token))
                (record-event {:event_name (str "chrome_extensions_from_url: " url) :event_data select-stri :op-fn #(prn %)})
                (set! (.-value (.getElementById js/document "google-input")) select-stri)
                (.click (.getElementById js/document "google-input-button"))
