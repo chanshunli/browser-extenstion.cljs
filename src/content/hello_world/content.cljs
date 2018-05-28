@@ -3,7 +3,7 @@
             EventType
             ErrorCode
             #_XhrIo
-            Jsonp
+            #_Jsonp
             ])
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
