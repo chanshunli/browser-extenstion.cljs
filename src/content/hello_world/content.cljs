@@ -5,7 +5,7 @@
             [alandipert.storage-atom :refer [local-storage] :as st]
             [hello-world.something :as something]
             ;;[cljs-http.client :as http] ;;;;;;;;;;;; λ分割
-            ;;[cljs-http.core :as core]
+            ;; [cljs-http.core :as core] ;;=> [cljs-http.core :refer [request]]
             [cljs-http.util :as util]
             [cljs.reader :refer [read-string]]
             [clojure.string :refer [blank? join split]]
