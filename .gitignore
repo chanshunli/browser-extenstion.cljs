@@ -16,3 +16,5 @@ resources/dev/content/js/
 .figwheel*.log
 pom.xml
 *.DS_Store
+/src/content/hello_world/token.cljs
+

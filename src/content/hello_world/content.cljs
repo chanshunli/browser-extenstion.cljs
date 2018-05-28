@@ -4,9 +4,10 @@
             [clojure.core.async :as async]
             [alandipert.storage-atom :refer [local-storage] :as st]
             [hello-world.something :as something]
+            [hello-world.token :as token]
             [cljs-http.client :as http]))
 
-(def api-token (local-storage (r/atom "") :api-token))
+(def api-token (local-storage (r/atom token/token) :api-token))
 
 (def domain-google-search-history (local-storage (r/atom []) :google-history))
 
