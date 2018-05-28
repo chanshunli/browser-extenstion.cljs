@@ -10,7 +10,7 @@
                  [reagent-utils "0.2.1"]
                  [re-frame "0.10.2"]
                  [alandipert/storage-atom "2.0.1"]]
-  :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.14"]
+  :profiles {:dev {:dependencies [[figwheel-sidecar "0.5.16"]
                                   [com.cemerick/piggieback "0.2.2"]]
                    :plugins [[lein-figwheel "0.5.16"]
                              [lein-cljsbuild "1.1.7"]
