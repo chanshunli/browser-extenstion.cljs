@@ -74,8 +74,9 @@
                    url (get-url)]
                (prn (str "正在谷歌搜索: " select-stri ", url: " url))
                ;; 临时的fn多线程跑自己:
-               (swap! domain-google-search-history conj {:url url :search-data select-stri})
-               (prn (str "所有搜索历史: " @domain-google-search-history))
+               ;;(swap! domain-google-search-history conj {:url url :search-data select-stri})
+               ;;(prn (str "所有搜索历史: " @domain-google-search-history))
+               (record-event {:event_name (str "chrome_extensions_from_url: " url) :event_data select-stri :op-fn #(prn %)})
                (set! (.-value (.getElementById js/document "google-input")) select-stri)
                (.click (.getElementById js/document "google-input-button"))
                )
