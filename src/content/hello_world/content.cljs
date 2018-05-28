@@ -1,4 +1,10 @@
 (ns hello-world.content
+  (:import [goog.net
+            EventType
+            ErrorCode
+            #_XhrIo
+            Jsonp
+            ])
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r]
             [clojure.core.async :as async]
@@ -12,9 +18,6 @@
             [goog.Uri :as uri]
             [no.en.core :refer [url-encode url-decode]]
             ))
-
-
-
 
 (def api-token (local-storage (r/atom "") :api-token))
 
