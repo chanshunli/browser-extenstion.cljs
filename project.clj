@@ -23,6 +23,7 @@
                                                     :source-paths ["src/background"]
                                                     :compiler {:output-to "resources/dev/background/js/main.js"
                                                                :output-dir "resources/dev/background/js/out"
+                                                               :closure-output-charset "US-ASCII"
                                                                :source-map true
                                                                :optimizations :none
                                                                :main hello_world.background}}]}
@@ -37,6 +38,7 @@
                                                 :source-paths ["src/option"]
                                                 :compiler {:output-to "resources/dev/option/js/main.js"
                                                            :output-dir "resources/dev/option/js/out"
+                                                           :closure-output-charset "US-ASCII"
                                                            :source-map true
                                                            :optimizations :none
                                                            :main hello_world.option}}]}
@@ -64,6 +66,7 @@
                                              :source-paths ["src/background"]
                                              :compiler {:output-to "resources/release/background/js/main.js"
                                                         :output-dir "resources/release/background/js/out"
+                                                        :closure-output-charset "US-ASCII"
                                                         :externs ["externs/chrome_extensions.js" "externs/chrome.js"]
                                                         :optimizations :advanced
                                                         :main hello_world.background}}
@@ -71,12 +74,14 @@
                                              :source-paths ["src/option"]
                                              :compiler {:output-to "resources/release/option/js/main.js"
                                                         :output-dir "resources/release/option/js/out"
+                                                        :closure-output-charset "US-ASCII"
                                                         :externs ["externs/chrome_extensions.js" "externs/chrome.js"]
                                                         :optimizations :advanced
                                                         :main hello_world.option}}
                                             {:id "content"
                                              :source-paths ["src/content"]
                                              :compiler {:output-to "resources/release/content/js/main.js"
+                                                        :closure-output-charset "US-ASCII"
                                                         :output-dir "resources/release/content/js/out"
                                                         :externs ["externs/chrome_extensions.js" "externs/chrome.js"]
                                                         :optimizations :advanced
@@ -84,6 +89,7 @@
              :test {:cljsbuild {:builds [{:id "test"
                                           :source-paths ["test" "src/content" "src/background" "src/option"]
                                           :compiler {:output-to "target/main.js"
+                                                     :closure-output-charset "US-ASCII"
                                                      :main hello_world.runner
                                                      :optimizations :none}}]}}}
   :aliases {"option" ["with-profile" "dev-option" "do"
