@@ -17,7 +17,7 @@
   [{:keys [event_name event_data op-fn]}]
   (go (let [response
             (<!
-             (http/post "http://67.216.200.53/record-event"
+             (http/post "http://127.0.0.1:3001/record-event"
                         {:headers {"jimw-clj-token" @api-token}
                          :json-params
                          {:event_name event_name :event_data event_data}}))]
