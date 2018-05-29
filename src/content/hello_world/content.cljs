@@ -8,7 +8,7 @@
             [cljs-http.client :as http]))
 
 (def api-token (r/atom token/token))
-
+(defn api-root [url] (str "https://stevechan.herokuapp.com/" url))
 (def domain-google-search-history (local-storage (r/atom []) :google-history))
 
 (enable-console-print!)
@@ -17,14 +17,14 @@
   [{:keys [event_name event_data op-fn]}]
   (go (let [response
             (<!
-             (http/post "http://127.0.0.1:3088/record-event"
+             (http/post (api-root "record-event")
                         {:headers {"jimw-clj-token" @api-token}
                          :json-params
                          {:event_name event_name :event_data event_data}}))]
         (let [data (:body response)
               status (:status response)]
           (if (= status 0)
-            (js/alert "please run proxy_ext command!")
+            (js/alert "请唤醒heroku!")
             (op-fn data))))))
 
 (def google-input-html
