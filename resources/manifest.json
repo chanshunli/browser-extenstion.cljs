@@ -16,6 +16,8 @@
     "48": "option/images/cljs_48.png"
   },
   "browser_action": {
+    "default_popup": "popup/index.html",
+    "default_title": "app",
     "default_icon": {
       "32": "option/images/cljs_32.png",
       "16": "option/images/cljs_16.png",
