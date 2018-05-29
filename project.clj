@@ -31,6 +31,26 @@
                                          :http-server-root "dev/background"
                                          :server-logfile ".figwheel_background.log"
                                          :repl true}}
+             ;; ;;
+             :dev-bg {:source-paths ["src/background"]
+                      :clean-targets ^{:protect false} [:target-path "resources/dev/background/js"]
+                      :figwheel {:server-port 8081
+                                 :nrepl-port 7099
+                                 :nrepl-middleware ["cemerick.piggieback/wrap-cljs-repl"]
+                                 :http-server-root "dev/background"
+                                 :server-logfile ".figwheel_bg.log"
+                                 :repl true}
+                      :cljsbuild {:builds [{:id "dev"
+                                            :figwheel true
+                                            :source-paths ["src/background"]
+                                            :compiler {:output-to "resources/dev/background/js/main.js"
+                                                       :source-map true
+                                                       :output-dir "resources/dev/background/js"
+                                                       :asset-path "js"
+                                                       :main hello_world.background
+                                                       :optimizations :none
+                                                       :verbose true}}]}}
+             ;; ;;;;;;;;;;;
              :dev-option {:source-paths ["src/option"]
                           :clean-targets ^{:protect false} ["resources/dev/option/js"]
                           :cljsbuild {:builds [{:id "dev"
